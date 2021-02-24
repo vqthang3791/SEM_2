@@ -1,0 +1,6 @@
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\bin\Debug\CodeSnippet9.exe.config
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\bin\Debug\CodeSnippet9.exe
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\bin\Debug\CodeSnippet9.pdb
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\obj\Debug\CodeSnippet9.csproj.CoreCompileInputs.cache
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\obj\Debug\CodeSnippet9.exe
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet9\obj\Debug\CodeSnippet9.pdb

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+</head>
+<body>
+<h4>Enter your details</h4>
+<FORM METHOD=POST ACTION="EMP_DETAILS.php">
+    <TABLE>
+        <TR>
+            <TD>Employee ID</TD>
+            <TD><INPUT type="text" name="empid"></TD>
+        </TR>
+        <TR>
+            <TD>Name</TD>
+            <TD><INPUT TYPE="text" NAME="Name"></TD>
+        </TR>
+        <TR>
+            <TD>Department</TD>
+            <TD>
+                <INPUT TYPE="radio" NAME="dept" VALUE="Finance">Fiance
+                <INPUT TYPE="radio" NAME="dept" VALUE="Marketing">Marketing
+                <INPUT TYPE="radio" NAME="dept" VALUE="IT">IT
+            </TD>
+        </TR>
+        <TR>
+            <TD>Email</TD>
+            <TD><INPUT TYPE="text" NAME="email"></TD>
+        </TR>
+    </TABLE>
+    <BR>
+    <TD><INPUT TYPE="submit" VALUE="SUBMIT"></TD>
+</FORM>
+</body>
+</html>

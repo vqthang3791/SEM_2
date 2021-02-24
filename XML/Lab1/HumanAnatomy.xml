@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Human_Anatomy>
+    <!--Explanation of each system-->
+    <System>
+        <Name number="206 bones">
+            Skeleton system
+        </Name>
+        <Function>
+            Forms a protective model to protect the muscles.
+        </Function>
+        <Types>
+            1.&quot;Axial&quot; skeleton 2.&quot;Appendicular&quot; skeleton
+        </Types>
+    </System>
+    <System>
+        <Name>
+            Digestive system
+        </Name>
+        <Function>
+            Breaks down the chemical components of food.
+        </Function>
+        <Part>
+            1. Mouth 2. Throat 3. Stomatch 4. Intestines 5.Rectum 6. Anus
+        </Part>
+    </System>
+    <System>
+        <Name>
+            Muscular system
+        </Name>
+        <Function>
+            Moves the muscles by tension and contraction.
+        </Function>
+        <Types>
+            1. &quot;Cardiac&quot; muscles 2. &quot;Smooth;&quot; muscles 3. &quot;Skeleton&quot; muscles
+        </Types>
+    </System>
+    <System>
+        <Name>
+            Nervous system
+        </Name>
+        <Function>
+            Gathers information and controllers the overall human system.
+        </Function>
+        <Part>
+            1. Brain 2. Spinal Cord
+        </Part>
+    </System>
+</Human_Anatomy>

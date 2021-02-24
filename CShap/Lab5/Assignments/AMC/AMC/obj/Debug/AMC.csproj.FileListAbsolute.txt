@@ -1,0 +1,2 @@
+C:\Users\vqtha\source\repos\Assignments\AMC\AMC\obj\Debug\AMC.csprojAssemblyReference.cache
+C:\Users\vqtha\source\repos\Assignments\AMC\AMC\obj\Debug\AMC.csproj.CoreCompileInputs.cache

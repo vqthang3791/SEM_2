@@ -1,0 +1,7 @@
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\bin\Debug\CodeSnippet10.exe.config
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\bin\Debug\CodeSnippet10.exe
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\bin\Debug\CodeSnippet10.pdb
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\obj\Debug\CodeSnippet10.csprojAssemblyReference.cache
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\obj\Debug\CodeSnippet10.csproj.CoreCompileInputs.cache
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\obj\Debug\CodeSnippet10.exe
+C:\Users\vqtha\source\repos\Cshap\CodeSnippet\CodeSnippet10\obj\Debug\CodeSnippet10.pdb

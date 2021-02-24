@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE SalesDetails SYSTEM "SalesDetails.dtd">
+<SalesDetails>
+    <Sale>
+        <BillNumber>4572</BillNumber>
+        <Date>23/02/2007</Date>
+        <Branch>Hampshire</Branch>
+        <Item>
+            <Number>1</Number>
+            <Name Category="Apparel">&VH; Shirt</Name>
+            <Code>23465778</Code>
+            <Quantity>3</Quantity>
+            <Price>499</Price>
+            <Discount>5</Discount>
+            <Total>1422</Total>
+        </Item>
+        <Payment Mode="Cash">
+            <CardName Type="Credit"></CardName>
+            <CustomerName></CustomerName>
+            <CardNumber></CardNumber>
+            <AccountNumber></AccountNumber>
+            <GrandTotal>1422</GrandTotal>
+        </Payment>
+    </Sale>
+    <Sale>
+        <BillNumber>4576</BillNumber>
+        <Date>23/02/2007</Date>
+        <Branch>Hampshire</Branch>
+        <Item>
+            <Number>1</Number>
+            <Name Category="Footwear">&MC; Leather Shoes</Name>
+            <Code>1312</Code>
+            <Quantity>3</Quantity>
+            <Price>1099</Price>
+            <Discount>0</Discount>
+            <Total>1099</Total>
+        </Item>
+        <Payment Mode="Cash">
+            <CardName Type="Credit"></CardName>
+            <CustomerName></CustomerName>
+            <CardNumber></CardNumber>
+            <AccountNumber></AccountNumber>
+            <GrandTotal>1099</GrandTotal>
+        </Payment>
+    </Sale>
+</SalesDetails>
