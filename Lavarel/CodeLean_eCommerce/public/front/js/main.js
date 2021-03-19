@@ -252,7 +252,30 @@
             }
         }
         $button.parent().find('input').val(newVal);
+        //update
+
+        const rowId = $button.parent().find('input').data('rowid');
+        updateCart(rowId, newVal);
+
+
     });
+
+    function updateCart(rowId, qty) {
+        $.ajax({
+            type: "GET",
+            url: "cart/update",
+            data: {rowId: rowId, qty: qty},
+            success: function (response) {
+                alert('Update successful!');
+                console.log(response);
+                location.reload();
+            },
+            error: function (error) {
+                alert('Update failed.')
+                console.log(error);
+            },
+        });
+    }
 
 
     /*-------------------
@@ -279,26 +302,4 @@
         }
     })
 
-    /*-------------------
-		Product Filter - Index
-	--------------------- */
-    $('.filter-control').on('click', 'item', function () {
-        const $item = $(this);
-        const filter = $item.data('tag');
-        const category = $item.data('category');
-
-        $item.siblings().removeClass('active');
-        $item.addClass('active');
-
-        if (category === 'men') {
-            product_men.owlcarousel2_filter(filter);
-        }
-        if (category === 'women') {
-            product_women.owlcarousel2_filter(filter);
-        }
-    })
-
 })(jQuery);
-
-
-

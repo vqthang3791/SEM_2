@@ -6,74 +6,67 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductComment;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Null_;
 
 class ShopController extends Controller
 {
-    //
     public function show($id)
     {
-        $product = Product::findOrFail($id);
 
+        $product = Product::findOrFail($id);
+        $categories = ProductCategory::all();
+
+        $brands = Brand::all();
         $avgRating = 0;
         $sumRating = array_sum(array_column($product->productComments->toArray(), 'rating'));
         $countRating = count($product->productComments);
+
         if ($countRating != 0) {
             $avgRating = $sumRating / $countRating;
         }
-
         $relatedProducts = Product::where('product_category_id', $product->product_category_id)
             ->where('tag', $product->tag)
             ->limit(4)
             ->get();
 
-        return view('front.shop.show', compact('product', 'avgRating', 'relatedProducts'));
+        return view('front.shop.show', compact('product', 'categories', 'brands', 'avgRating', 'relatedProducts'));
     }
 
     public function postComment(Request $request)
     {
         ProductComment::create($request->all());
-
         return redirect()->back();
     }
 
     public function index(Request $request)
     {
-        //Get categories:
-        $categories = ProductCategory::all();
-        $brands = Brand::all();
 
-        //Get products:
+
+        $categories = ProductCategory::all();
+
+        $brands = Brand::all();
         $perPage = $request->show ?? 3;
         $sortBy = $request->sort_by ?? 'latest';
         $search = $request->search ?? '';
 
         $products = Product::where('name', 'like', '%' . $search . '%');
-
         $products = $this->filter($products, $request);
-
         $products = $this->sortAndPagination($products, $sortBy, $perPage);
 
-
-        return view('front.shop.index', compact('categories', 'products'));
+        return view('front.shop.index', compact('categories', 'brands', 'products'));
     }
 
     public function category($categoryName, Request $request)
     {
-        //Get categories, brands:
         $categories = ProductCategory::all();
         $brands = Brand::all();
-
-        //Get product:
         $perPage = $request->show ?? 3;
         $sortBy = $request->sort_by ?? 'latest';
+
         $products = ProductCategory::where('name', $categoryName)->first()->products->toQuery();
-
         $products = $this->filter($products, $request);
-
         $products = $this->sortAndPagination($products, $sortBy, $perPage);
-
         return view('front.shop.index', compact('categories', 'brands', 'products'));
     }
 
@@ -99,11 +92,9 @@ class ShopController extends Controller
                 $products = $products->orderByDesc('price');
                 break;
             default:
-                $products = $products->orderBy('id');
+                $products = Product::orderBy('id');
         }
-
         $products = $products->paginate($perPage);
-
         $products->appends(['sort_by' => $sortBy, 'show' => $perPage]);
 
         return $products;
@@ -111,24 +102,30 @@ class ShopController extends Controller
 
     public function filter($products, Request $request)
     {
-        //Brand
         $brands = $request->brand ?? [];
         $brand_ids = array_keys($brands);
         $products = $brand_ids != null ? $products->whereIn('brand_id', $brand_ids) : $products;
 
-        //Price
         $priceMin = $request->price_min;
         $priceMax = $request->price_max;
         $priceMin = str_replace('$', '', $priceMin);
         $priceMax = str_replace('$', '', $priceMax);
-        $products = ($priceMin != null && $priceMax != Null) ? $products->whereBetween('price', [$priceMin, $priceMax]) : $products;
+        $products = ($priceMin != null && $priceMax != null) ? $products->whereBetween('price', [$priceMin, $priceMax]) : $products;
 
-        //Color
         $color = $request->color;
-        $products = $color != Null
+        $products = $color != null
             ? $products->whereHas('productDetails', function ($query) use ($color) {
                 return $query->where('color', $color)->where('qty', '>', 0);
-            }) : $products;
+            })
+            : $products;
+
+
+        $size = $request->size;
+        $products = $size != null
+            ? $products->whereHas('productDetails', function ($query) use ($size) {
+                return $query->where('size', $size)->where('qty', '>', 0);
+            })
+            : $products;
         return $products;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +14,27 @@ use App\Http\Controllers\Front;
 |
 */
 
-//Route::get('/', function () {
-//    return view('front.index');
-//
-////    return \App\Models\User::all();
-////    return \App\Models\Brand::find(1)->products;
-////    return \App\Models\Brand::find(2)->products;
-////    return \App\Models\Product::find(1)->productImages;
-////    return \App\Models\Product::find(1)->brand;
-//});
-
 Route::get('/', [Front\HomeController::class, 'index']);
+
 
 Route::prefix('shop')->group(function () {
     Route::get('/product/{id}', [Front\ShopController::class, 'show']);
+
     Route::post('/product/{id}', [Front\ShopController::class, 'postComment']);
 
     Route::get('/', [Front\ShopController::class, 'index']);
-
     Route::get('/{categoryName}', [Front\ShopController::class, 'category']);
 });
+
+Route::prefix('/cart')->group(function () {
+    Route::get('add/{id}', [Front\CartController::class, 'add']);
+    Route::get('/', [Front\CartController::class, 'index']);
+    Route::get('delete/{rowId}', [Front\CartController::class, 'delete']);
+    Route::get('/destroy', [Front\CartController::class, 'destroy']);
+    Route::get('/update', [Front\CartController::class, 'update']);
+});
+
+//Route::prefix('/checkout')->group(function () {
+//    Route::get('/', [Front\CheckOutController::class, 'index']);
+//    Rout::post('/', [Front\CheckOutController::class, 'addOrder']);
+//});
